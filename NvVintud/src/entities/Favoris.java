@@ -7,14 +7,14 @@ public class Favoris {
 	private int id;
 	private int announcement_id; 
 	private int user_id ; 
-	private Date dateAjout;
+	private String dateAjout;
 	
 	
 	public Favoris() {
 	}
 
 
-	public Favoris(int id, int announcement_id, int user_id, Date dateAjout) {
+	public Favoris(int id, int announcement_id, int user_id, String dateAjout) {
 		this.id = id;
 		this.announcement_id = announcement_id;
 		this.user_id = user_id;
@@ -52,12 +52,12 @@ public class Favoris {
 	}
 
 
-	public Date getDateAjout() {
+	public String getDateAjout() {
 		return dateAjout;
 	}
 
 
-	public void setDateAjout(Date dateAjout) {
+	public void setDateAjout(String dateAjout) {
 		this.dateAjout = dateAjout;
 	}
 

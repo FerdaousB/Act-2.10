@@ -13,7 +13,7 @@ public class ConnectionUtil {
 	    private String username = "postgres";
 	    private String password = "root";
 
-	    private ConnectionUtil() throws SQLException {
+	    public ConnectionUtil() throws SQLException {
 	        try {
 	            Class.forName(driverName);
 	            this.connection = DriverManager.getConnection(url, username, password);

@@ -2,13 +2,15 @@ package dao;
 
 import java.util.List;
 
+import entities.Role;
 import entities.User;
 
 public interface UtilisateurDAO {
 	
-	 List<User> getAllUsers();
-     void InserUser(User U);
-	 void UpdateUser(User U);
-	 void deleteUser(User U);
+	public List<User> getAllUsers();
+	public boolean Register(User user);
+	public boolean ConnecteUser(User user);
+	public void UpdateUser(User user);
+	public List<Role> getAllRoles();
 	 
 }

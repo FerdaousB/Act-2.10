@@ -2,6 +2,7 @@ package entities;
 
 import java.sql.Date;
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class Announcement implements AnnouncementImpl{
@@ -14,7 +15,7 @@ public class Announcement implements AnnouncementImpl{
 	private int category_id;
 	private double price;
 	private byte[] picture;
-	private Date publication_date ; 
+	private String publication_date ; 
 	private boolean  is_available;
 	private int view_number;
 	private String localisation;
@@ -26,7 +27,7 @@ public class Announcement implements AnnouncementImpl{
 
 
 	public Announcement(int id, String title, String description, int category_id, double price, byte[] picture,
-			Date publication_date, boolean is_available, int view_number, String localisation, int user_id) {
+	    String publication_date, boolean is_available, int view_number, String localisation, int user_id) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -38,6 +39,35 @@ public class Announcement implements AnnouncementImpl{
 		this.view_number = view_number;
 		this.localisation = localisation;
 		this.user_id = user_id;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(picture);
+		result = prime * result + Objects.hash(category_id, description, id, is_available, localisation, price,
+				publication_date, title, user_id, view_number);
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Announcement other = (Announcement) obj;
+		return category_id == other.category_id && Objects.equals(description, other.description) && id == other.id
+				&& is_available == other.is_available && Objects.equals(localisation, other.localisation)
+				&& Arrays.equals(picture, other.picture)
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
+				&& Objects.equals(publication_date, other.publication_date) && Objects.equals(title, other.title)
+				&& user_id == other.user_id && view_number == other.view_number;
 	}
 
 
@@ -101,13 +131,13 @@ public class Announcement implements AnnouncementImpl{
 	}
 
 
-	public Date getPublication_date() {
+	public String getPublication_date() {
 		return publication_date;
 	}
 
 
-	public void setPublication_date(Date date) {
-		this.publication_date = date;
+	public void setPublication_date(String string) {
+		this.publication_date = string;
 	}
 
 
