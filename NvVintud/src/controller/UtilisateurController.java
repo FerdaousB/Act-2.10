@@ -19,7 +19,7 @@ public class UtilisateurController {
     
  
 	
-	private UtilisateurController(){
+	public UtilisateurController(){
 		
 	}
 	
