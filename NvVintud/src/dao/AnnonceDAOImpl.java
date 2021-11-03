@@ -16,10 +16,10 @@ import util.ConnectionUtil;
 public class AnnonceDAOImpl implements AnnonceDAO{
 	
 	@Override
-	 public List<Announcement> afficherlisteAnnouncements() {
+	 public List<Announcement> findAnnouncementsById() {
 		Statement stm= null;
         List<Announcement> myListe = new ArrayList<>();
-        String req = "select * from vintud.announcement";
+        String req = "select * from vintud.announcement Order BY id";
         try {
             Connection co = ConnectionUtil.getInstance().getConnection();
             stm=co.createStatement();           
@@ -53,7 +53,7 @@ public class AnnonceDAOImpl implements AnnonceDAO{
 
 	
 	@Override
-	public List<Announcement> rechercheAnnonceByNomCategoryPrice(String p, int b) {
+	public List<Announcement> findAnnonceByNomCategoryPrice(String p, int b) {
 		 List<Announcement> list = new ArrayList<>();
 		 String req = "select * from vintud.announcement WHERE title=? and price=? ";
         try {
@@ -92,7 +92,7 @@ public class AnnonceDAOImpl implements AnnonceDAO{
 	}
 
 	@Override
-	public Announcement filtreAnnonceByPrice(String p) {
+	public Announcement findAnnonceByPrice(String p) {
 		Announcement annonce = null;
 		 String req = "select * from vintud.announcement ORDER BY price ";
 	        try {
@@ -128,7 +128,7 @@ public class AnnonceDAOImpl implements AnnonceDAO{
 	}
 
 	@Override
-	public Announcement filtreAnnonceByLocation(String l) {
+	public Announcement findAnnonceByLocation(String l) {
 		Announcement annonce = null;
 		 String req = "select * from vintud.announcement ORDER BY localisation ";
 	        try {
@@ -192,7 +192,7 @@ public class AnnonceDAOImpl implements AnnonceDAO{
 
 
 	@Override
-	public Announcement AfficheNombtrView(int nb_V) {
+	public Announcement findByNombtrView(int nb_V) {
 		Announcement annonce = null;
 		 String req = "select * from vintud.announcement ORDER BY view_number ";
 	        try {

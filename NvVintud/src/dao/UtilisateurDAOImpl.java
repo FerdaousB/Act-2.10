@@ -21,7 +21,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 
 		Statement stm= null;
         List<User> list = new ArrayList<User>();
-        String req = "select * from vintud.user";
+        String req = "select * from vintud.user Order by id";
         try {
                Connection co = ConnectionUtil.getInstance().getConnection();
                stm=co.createStatement();           
@@ -45,7 +45,6 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
                   System.err.println(e.getMessage());
             }
              return list;
-
 	}
 
 	@Override
@@ -100,10 +99,8 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 		   } catch (SQLException e) {
 			       System.out.println("Error to update user ...");
 			       e.printStackTrace();
-		}		
-		
-		
-	}
+		}
+}
 	
 	@Override
 	public List<Role> getAllRoles() {
@@ -143,7 +140,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				String pseudo= sc.nextLine() ;
 
 				Scanner sc2 = new Scanner(System.in);
-				System.out.println("entrer votre mot de passe :");
+				System.out.println("entrer votre mot de passe : ");
 				String passeword= sc2.nextLine();
 				
 				String Pseudo = "'"+pseudo+"'" ;

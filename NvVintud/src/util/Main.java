@@ -22,8 +22,8 @@ import entities.User;
 		AnnonceDAOImpl U1 = new AnnonceDAOImpl();
 		Announcement A = new Announcement();
 
-		List<Announcement> list = U1.afficherlisteAnnouncements();
-		U1.afficherlisteAnnouncements();
+		List<Announcement> list = U1.findAnnouncementsById();
+		U1.findAnnouncementsById();
 		    for (Announcement A1: list ) {
 		       System.out.println(A1);}
 

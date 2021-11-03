@@ -6,12 +6,12 @@ import entities.Announcement;
 
 public interface AnnonceDAO {
 	
-	 public List<Announcement> afficherlisteAnnouncements();
-	 public List<Announcement> rechercheAnnonceByNomCategoryPrice(String p, int b);
-	 public Announcement filtreAnnonceByPrice(String p);
-	 public Announcement filtreAnnonceByLocation(String l);
+	 public List<Announcement> findAnnouncementsById();
+	 public List<Announcement> findAnnonceByNomCategoryPrice(String p, int b);
+	 public Announcement findAnnonceByPrice(String p);
+	 public Announcement findAnnonceByLocation(String l);
      public void InsertAnnonce(Announcement annonce);
-     public Announcement AfficheNombtrView(int nb_V);
+     public Announcement findByNombtrView(int nb_V);
 	 public void UpdateAnnonce(Announcement annonce);
 	 public void DeleteAnnonce(Announcement annonce);
 
